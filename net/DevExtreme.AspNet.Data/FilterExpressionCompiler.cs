@@ -167,7 +167,7 @@ namespace DevExtreme.AspNet.Data {
             if(type.IsEnum || (int)Type.GetTypeCode(type) > 2)
                 return true;
 
-            if(type == typeof(Guid) || type == typeof(DateTimeOffset) || type == typeof(TimeSpan))
+            if(type == typeof(Guid) || type == typeof(DateTimeOffset) || type == typeof(TimeSpan)) // + DateOnly, TimeOnly? (or GetTypeCode?)
                 return true;
 
             var operatorMethod = type.GetMethod("op_Equality", new[] { type, type });
@@ -182,7 +182,7 @@ namespace DevExtreme.AspNet.Data {
             if(code > 4 && code < 18)
                 return true;
 
-            if(type == typeof(DateTimeOffset) || type == typeof(TimeSpan))
+            if(type == typeof(DateTimeOffset) || type == typeof(TimeSpan)) // + DateOnly, TimeOnly? (or GetTypeCode?)
                 return true;
 
             return type.GetMethod("op_GreaterThan", new[] { type, type }) != null;

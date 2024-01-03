@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 
 namespace DevExtreme.AspNet.Data.Helpers {
-
+    //Tests.NET4 Only?
     static class EFSorting {
 
         static readonly IEnumerable<Type> ORDERED_SORTABLE_TYPES = new[] {
@@ -17,6 +17,9 @@ namespace DevExtreme.AspNet.Data.Helpers {
             // other types
             typeof(Boolean), typeof(Decimal), typeof(Double),
             typeof(DateTime), typeof(DateTimeOffset),
+//#if NET6_0_OR_GREATER
+//          typeof(DateOnly),
+//#endif
             typeof(Byte), typeof(SByte), typeof(Single), typeof(Int16)
         };
 

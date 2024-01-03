@@ -57,6 +57,7 @@ namespace DevExtreme.AspNet.Data {
             if(type.GetTypeInfo().IsEnum)
                 return Enum.Parse(type, Convert.ToString(value), true);
 
+            // + DateOnly (or Convert.ChangeType?)
             return Convert.ChangeType(value, type, CultureInfo.InvariantCulture);
         }
 

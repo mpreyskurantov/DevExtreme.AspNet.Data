@@ -96,6 +96,12 @@ namespace DevExtreme.AspNet.Data {
             if(value is DateTimeOffset offset)
                 return offset.DateTime;
 
+#if NET6_0_OR_GREATER
+            //https://github.com/dotnet/sdk/issues/22625
+            if(value is DateOnly date)
+                return date.ToDateTime(TimeOnly.MinValue);
+#endif
+
             return Convert.ToDateTime(value);
         }
     }

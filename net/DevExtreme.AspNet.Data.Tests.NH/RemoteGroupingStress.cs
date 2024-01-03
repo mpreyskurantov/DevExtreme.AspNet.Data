@@ -13,6 +13,8 @@ namespace DevExtreme.AspNet.Data.Tests.NH {
             public virtual int? NullNum { get; set; }
             public virtual DateTime Date { get; set; }
             public virtual DateTime? NullDate { get; set; }
+            public virtual DateOnly DateO { get; set; }
+            public virtual DateOnly? NullDateO { get; set; }
         }
 
         public class DataItemMap : ClassMap<DataItem> {
@@ -23,6 +25,8 @@ namespace DevExtreme.AspNet.Data.Tests.NH {
                 Map(i => i.NullNum);
                 Map(i => i.Date);
                 Map(i => i.NullDate);
+                Map(i => i.DateO);
+                Map(i => i.NullDateO);
             }
         }
 

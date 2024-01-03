@@ -14,6 +14,8 @@ namespace DevExtreme.AspNet.Data.Tests.Xpo {
             int? _nullNum;
             DateTime _date;
             DateTime? _nullDate;
+            DateOnly _dateO;
+            DateOnly? _nullDateO;
 
             public DataItem(Session session)
                 : base(session) {
@@ -43,6 +45,16 @@ namespace DevExtreme.AspNet.Data.Tests.Xpo {
             public DateTime? NullDate {
                 get { return _nullDate; }
                 set { SetPropertyValue(nameof(NullDate), ref _nullDate, value); }
+            }
+
+            public DateOnly DateO {
+                get { return _dateO; }
+                set { SetPropertyValue(nameof(DateO), ref _dateO, value); }
+            }
+
+            public DateOnly? NullDateO {
+                get { return _nullDateO; }
+                set { SetPropertyValue(nameof(NullDateO), ref _nullDateO, value); }
             }
 
         }
