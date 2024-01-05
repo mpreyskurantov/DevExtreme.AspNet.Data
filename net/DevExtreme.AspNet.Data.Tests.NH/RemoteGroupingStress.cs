@@ -13,6 +13,7 @@ namespace DevExtreme.AspNet.Data.Tests.NH {
             public virtual int? NullNum { get; set; }
             public virtual DateTime Date { get; set; }
             public virtual DateTime? NullDate { get; set; }
+            //interface implementation
             public virtual DateOnly DateO { get; set; }
             public virtual DateOnly? NullDateO { get; set; }
         }
@@ -25,8 +26,9 @@ namespace DevExtreme.AspNet.Data.Tests.NH {
                 Map(i => i.NullNum);
                 Map(i => i.Date);
                 Map(i => i.NullDate);
-                Map(i => i.DateO);
-                Map(i => i.NullDateO);
+                //https://github.com/nhibernate/nhibernate-core/issues/2912
+                //Map(i => i.DateO);
+                //Map(i => i.NullDateO);
             }
         }
 
