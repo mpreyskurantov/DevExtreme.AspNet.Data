@@ -11,7 +11,7 @@ namespace DevExtreme.AspNet.Data.Tests {
         const string PROP_NULL_NUM = nameof(IEntity.NullNum);
         const string PROP_DATE = nameof(IEntity.Date);
         const string PROP_NULL_DATE = nameof(IEntity.NullDate);
-#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER && EFCORE8
         const string PROP_DATE_ONLY = nameof(IEntity.DateO);
         const string PROP_NULL_DATE_ONLY = nameof(IEntity.NullDateO);
 #endif
@@ -21,7 +21,7 @@ namespace DevExtreme.AspNet.Data.Tests {
             int? NullNum { get; }
             DateTime Date { get; }
             DateTime? NullDate { get; }
-#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER && EFCORE8
             DateOnly DateO { get; set; }
             DateOnly? NullDateO { get; set; }
 #endif
@@ -45,7 +45,7 @@ namespace DevExtreme.AspNet.Data.Tests {
                 new GroupingInfo { Selector = PROP_NULL_NUM },
                 new GroupingInfo { Selector = PROP_DATE },
                 new GroupingInfo { Selector = PROP_NULL_DATE },
-#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER && EFCORE8
                 new GroupingInfo { Selector = PROP_DATE_ONLY },
                 new GroupingInfo { Selector = PROP_NULL_DATE_ONLY }
 #endif

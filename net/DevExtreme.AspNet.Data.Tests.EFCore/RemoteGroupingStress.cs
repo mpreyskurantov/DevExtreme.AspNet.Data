@@ -15,7 +15,7 @@ namespace DevExtreme.AspNet.Data.Tests.EFCore {
             public int? NullNum { get; set; }
             public DateTime Date { get; set; }
             public DateTime? NullDate { get; set; }
-#if NET6_0_OR_GREATER
+#if NET6_0_OR_GREATER && EFCORE8
             public DateOnly DateO { get; set; }
             public DateOnly? NullDateO { get; set; }
 #endif
@@ -29,6 +29,7 @@ namespace DevExtreme.AspNet.Data.Tests.EFCore {
                 dbSet.Add(new DataItem());
                 context.SaveChanges();
 
+                //https://stackoverflow.com/questions/73884768
                 RemoteGroupingStressHelper.Run(dbSet);
             });
         }
