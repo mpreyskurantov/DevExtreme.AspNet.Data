@@ -1,11 +1,9 @@
 ﻿using DevExtreme.AspNet.Data.Helpers;
 using DevExtreme.AspNet.Data.ResponseModel;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace DevExtreme.AspNet.Data {
 
@@ -38,7 +36,9 @@ namespace DevExtreme.AspNet.Data {
             var groupsIndex = new Dictionary<object, Group>();
             var groups = new List<Group>();
 
-            foreach(var item in data) {
+            //data.ToList(); // fails here (explicit)
+
+            foreach(var item in data) { // fails here (implicit)
                 var groupKey = GetKey(item, groupInfo);
                 var groupIndexKey = groupKey ?? NULL_KEY;
 
@@ -70,33 +70,7 @@ namespace DevExtreme.AspNet.Data {
                 return number - number % interval;
             }
 
-            switch(intervalString) {
-                case "year":
-                    return ToDateTime(memberValue).Year;
-                case "quarter":
-                    return (ToDateTime(memberValue).Month + 2) / 3;
-                case "month":
-                    return ToDateTime(memberValue).Month;
-                case "day":
-                    return ToDateTime(memberValue).Day;
-                case "dayOfWeek":
-                    return (int)ToDateTime(memberValue).DayOfWeek;
-                case "hour":
-                    return ToDateTime(memberValue).Hour;
-                case "minute":
-                    return ToDateTime(memberValue).Minute;
-                case "second":
-                    return ToDateTime(memberValue).Second;
-            }
-
             throw new NotSupportedException();
-        }
-
-        static DateTime ToDateTime(object value) {
-            if(value is DateTimeOffset offset)
-                return offset.DateTime;
-
-            return Convert.ToDateTime(value);
         }
     }
 
