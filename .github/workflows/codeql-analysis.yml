@@ -17,10 +17,7 @@ concurrency:
 
 on:
   push:
-    branches: [ "master" ]
   pull_request:
-  schedule:
-    - cron: '0 0 * * 6'
 
 env:
   NPM_CONFIG_AUDIT: "false"
