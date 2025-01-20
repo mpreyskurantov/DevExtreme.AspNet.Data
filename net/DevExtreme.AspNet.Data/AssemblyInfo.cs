@@ -11,5 +11,5 @@ using System.Runtime.CompilerServices;
 [assembly: CLSCompliant(true)]
 
 #if !DEBUG
-[assembly: AssemblyKeyFile("release.snk")]
+// [assembly: AssemblyKeyFile("release.snk")]
 #endif
