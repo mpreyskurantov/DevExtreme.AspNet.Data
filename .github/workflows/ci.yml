@@ -21,5 +21,6 @@ jobs:
         sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu5_amd64.deb
         curl -L -o /opt/secure-file.zip https://github.com/appveyor/secure-file/releases/download/1.0.1/secure-file.zip
         unzip /opt/secure-file.zip -d /opt/secure-file
+        dotnet --list-runtimes
         dotnet pack net/DevExtreme.AspNet.Data --configuration=Release --include-symbols
         dotnet /opt/secure-file/secure-file.dll -decrypt net/DevExtreme.AspNet.Data/release.snk.enc -secret ${{ env.RELEASE_KEY_SECRET }}
