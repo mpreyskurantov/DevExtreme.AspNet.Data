@@ -23,7 +23,7 @@ jobs:
         unzip /opt/secure-file.zip -d /opt/secure-file
         dotnet --list-runtimes
         echo ${{env.DOTNET_ROOT}}
-        echo '{ "sdk": { "version": "8.0.12" } }' > global.json
-        cat global.json
+        #echo '{ "sdk": { "version": "8.0.12" } }' > global.json
+        #cat global.json
         dotnet pack net/DevExtreme.AspNet.Data --configuration=Release --include-symbols
         dotnet /opt/secure-file/secure-file.dll -decrypt net/DevExtreme.AspNet.Data/release.snk.enc -secret ${{ env.RELEASE_KEY_SECRET }}
