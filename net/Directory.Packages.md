@@ -40,7 +40,7 @@ TFM: `net10.0`
 - `xunit`
 - `xunit.runner.visualstudio`
 ---
-- `Microsoft.EntityFrameworkCore.SqlServer` VersionOverride=`10.0.0-rc.1.25451.107`[->](#microsoftentityframeworkcoresqlserver-versionoverride1000-rc125451107)
+- `Microsoft.EntityFrameworkCore.SqlServer` VersionOverride=`10.0.0-rc.2.25502.107`[->](#microsoftentityframeworkcoresqlserver-versionoverride1000-rc225502107)
 
 ### .NET 8.0 Dependencies
 
@@ -143,7 +143,7 @@ TFM: `net472`
 
 ### TFM: `net10.0`
 
-#### `Microsoft.EntityFrameworkCore.SqlServer` VersionOverride=`10.0.0-rc.1.25451.107`
+#### `Microsoft.EntityFrameworkCore.SqlServer` VersionOverride=`10.0.0-rc.2.25502.107`
 - `\DevExtreme.AspNet.Data.Tests.EFCore10\DevExtreme.AspNet.Data.Tests.EFCore10.csproj`
 - `\Sample\Sample.csproj`
 
