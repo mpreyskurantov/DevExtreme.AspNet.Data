@@ -34,8 +34,8 @@ jobs:
 
     - name: Install ESLint
       run: |
-        ESLINT_VERSION=$(node -p "require('./package-lock.json').packages['node_modules/eslint'].version")
-        npm i --no-save eslint@$ESLINT_VERSION
+        ESLINT_VERSION=$(node -p "require('./package.json').devDependencies.eslint")
+        npm i --no-save eslint@$ESLINT_VERSION @eslint/js@latest
     - run: npm run eslint
 
   test-js:
