@@ -1,7 +1,11 @@
 <Project>
-  <PropertyGroup>
-    <NoWarn>NU1507</NoWarn>
+  <PropertyGroup Condition="'$(DXDisableCentral)' != 'true'">
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NoWarn>NU1507;$(NoWarn)</NoWarn>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors)</WarningsNotAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="Azure.Identity" Version="1.14.2" />
