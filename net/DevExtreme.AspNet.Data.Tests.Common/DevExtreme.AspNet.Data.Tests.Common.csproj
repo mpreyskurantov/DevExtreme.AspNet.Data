@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net462;net8.0</TargetFrameworks>
+    <TargetFrameworks>net472;net8.0</TargetFrameworks>
     <RootNamespace>DevExtreme.AspNet.Data.Tests</RootNamespace>
+    <OutputType>Exe</OutputType>
     <IsTestProject>False</IsTestProject>
   </PropertyGroup>
 
@@ -13,8 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\DevExtreme.AspNet.Data\DevExtreme.AspNet.Data.csproj" />
     <PackageReference Include="System.Data.SqlClient" />
-    <PackageReference Include="xunit.assert" />
-    <PackageReference Include="xunit.core" />
+    <PackageReference Include="xunit.v3.assert" />
+    <PackageReference Include="xunit.v3.core" />
   </ItemGroup>
 
 </Project>
