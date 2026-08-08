@@ -100,3 +100,39 @@ jobs:
       run: |
         npm publish devextreme-aspnet-data-nojquery-*.tgz --provenance --access public ${{ inputs['dry-run'] && '--dry-run' || '' }}
         npm publish devextreme-aspnet-data-[0-9]*.tgz --provenance --access public ${{ inputs['dry-run'] && '--dry-run' || '' }}
+
+  publish-nuget:
+    runs-on: ubuntu-latest
+    needs: pack
+    if: startsWith(github.ref, 'refs/tags/')
+    environment: nuget
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0
+
+    - uses: actions/download-artifact@v4
+      with:
+        name: nuget-packages
+        path: nuget-packages
+
+    - name: NuGet login
+      if: ${{ !inputs['dry-run'] }}
+      uses: NuGet/login@v1
+      id: login
+      with:
+        user: ${{ secrets.NUGET_USER }}
+
+    - name: Publish to nuget.org
+      if: ${{ !inputs['dry-run'] }}
+      run: |
+        cd nuget-packages
+        package=$(find . -maxdepth 1 -type f -name '*.nupkg' ! -name '*.symbols.nupkg' -print -quit)
+        test -n "$package"
+        dotnet nuget push "$package" \
+          --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
+          --source https://api.nuget.org/v3/index.json
