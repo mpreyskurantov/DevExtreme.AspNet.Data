@@ -2,15 +2,12 @@
 
 const DefinePlugin = require("webpack").DefinePlugin;
 
-module.exports = function(env) {
+function createConfig(filename, aspNetDataScript, cjs) {
     const definitions = {
-        ASPNET_DATA_SCRIPT: JSON.stringify(Boolean(env.NOJQUERY)
-            ? "../js-nojquery/index.js"
-            : "../js/dx.aspnet.data.js"
-        )
+        ASPNET_DATA_SCRIPT: JSON.stringify(aspNetDataScript)
     };
 
-    if(Boolean(env.CJS)) {
+    if(cjs) {
         definitions["define"] = false;
     }
 
@@ -19,11 +16,17 @@ module.exports = function(env) {
         entry: "./test.js",
         output: {
             path: __dirname,
-            filename: "test-bundle.js"
+            filename: filename
         },
         plugins: [
             new DefinePlugin(definitions)
         ],
         devtool: false
     }
-};
+}
+
+module.exports = [
+    createConfig("test-bundle.js", "../js/dx.aspnet.data.js"),
+    createConfig("test-bundle-nojquery.js", "../js-nojquery/index.js"),
+    createConfig("test-bundle-nojquery-cjs.js", "../js-nojquery/index.js", true)
+];

@@ -7,7 +7,8 @@ net/packages/
 net/DevExtreme.AspNet.Data/release.snk
 /js-nojquery/
 /js-test/coverage/
-/js-test/test-bundle.js
+/js-test/test-bundle*.js
+/js-test/test-results/
 /js-test/check-ts-compilation.js
 /js-test/check-ts-compilation.nojquery.*
 **/wwwroot/lib/

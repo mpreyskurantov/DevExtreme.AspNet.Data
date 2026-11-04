@@ -18,17 +18,18 @@
     "devextreme": ">=18.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "1.64.1",
     "@types/jquery": "3.5.34",
     "devextreme": "26.1.6",
     "devextreme-dist": "26.1.6",
     "eslint": "10.14.0",
+    "istanbul-lib-coverage": "3.2.2",
+    "istanbul-lib-report": "3.0.1",
+    "istanbul-reports": "3.2.0",
     "jquery": "3.7.1",
-    "karma": "6.4.4",
-    "karma-chrome-launcher": "3.2.0",
-    "karma-coverage": "2.2.1",
-    "karma-qunit": "4.2.3",
     "qunit": "3.0.0",
     "typescript": "7.0.2",
+    "v8-to-istanbul": "9.3.0",
     "webpack": "5.112.2",
     "webpack-cli": "7.3.1",
     "xhr-mock": "2.5.1"
@@ -37,10 +38,7 @@
     "minimatch@^10": "11.0.4"
   },
   "scripts": {
-    "karma": "cd js-test && karma start",
-    "karma-bundled": "cd js-test && webpack && karma start --bundled",
-    "karma-bundled-nojquery": "cd js-test && webpack --env NOJQUERY=true && karma start --bundled",
-    "karma-bundled-nojquery-cjs": "cd js-test && webpack --env NOJQUERY=true --env CJS=true && karma start --bundled",
+    "test": "cd js-test && webpack && playwright test",
     "dts": "cd js-test && tsc --types jquery --strict false check-ts-compilation.ts && tsc --types jquery --strict false check-ts-compilation.nojquery.ts",
     "eslint": "eslint ."
   }

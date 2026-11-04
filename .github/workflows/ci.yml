@@ -57,10 +57,7 @@ jobs:
     - run: npm ci
 
     - run: npm run dts
-    - run: npm run karma
-    - run: npm run karma-bundled
-    - run: npm run karma-bundled-nojquery
-    - run: npm run karma-bundled-nojquery-cjs
+    - run: npm test
 
     - uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
       with:

@@ -1,4 +1,4 @@
-/* global ASPNET_DATA_SCRIPT:false, DevExpress:false, Promise:false, window:false, document:false */
+/* global ASPNET_DATA_SCRIPT:false, DevExpress:false, Promise:false, QUnit:false, window:false, document:false */
 
 (function(factory) {
     "use strict";
@@ -37,9 +37,6 @@
 
 })(function(XHRMock, devextremeVersion, DataSource, ajaxUtility, AspNet) {
     "use strict";
-
-    // https://github.com/karma-runner/karma-qunit/issues/57
-    var QUnit = window.QUnit;
 
     if(typeof devextremeVersion === "object")
         devextremeVersion = devextremeVersion.version;

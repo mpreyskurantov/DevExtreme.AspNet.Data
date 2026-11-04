@@ -5,7 +5,7 @@ module.exports = [
         ignores: [
             "docs/",
             "js-test/check-ts-compilation.*",
-            "js-test/test-bundle.js",
+            "js-test/test-bundle*.js",
             "net/"
         ]
     },
@@ -28,7 +28,7 @@ module.exports = [
         }
     },
     {
-        files: [ "eslint.config.js", "build/**", "js-test/karma.conf.js", "js-test/webpack.config.js" ],
+        files: [ "eslint.config.js", "build/**", "js-test/playwright.config.js", "js-test/qunit.spec.js", "js-test/webpack.config.js" ],
         languageOptions: {
             ecmaVersion: 6,
             sourceType: "commonjs",
@@ -36,6 +36,15 @@ module.exports = [
                 __dirname: "readonly",
                 console: "readonly",
                 process: "readonly"
+            }
+        }
+    },
+    {
+        files: [ "js-test/qunit.spec.js" ],
+        languageOptions: {
+            ecmaVersion: 2022,
+            globals: {
+                URL: "readonly"
             }
         }
     }
